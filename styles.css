@@ -28,6 +28,7 @@
     background: #222;
     color: #fff;
     padding: 1rem 0;
+    position: fixed;
   }
   
   .navbar h1 {
