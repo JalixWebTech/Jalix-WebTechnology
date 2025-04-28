@@ -28,13 +28,7 @@
     .fas.fa-mobile-alt { color: #20c997; }
     .fas.fa-envelope { color: #dc3545; }
 
-    body.loading::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: #1b0019 url('https://i.gifer.com/ZZ5H.gif') no-repeat center center;
-      z-index: 9999;
-    }
+    
 
    
 
@@ -46,7 +40,7 @@
     .dark-mode header,
     .dark-mode footer,
     .dark-mode section {
-      background-color: #1e1e1e;
+      background-color: blue;
     }
     .dark-toggle {
       cursor: pointer;
@@ -178,10 +172,7 @@
   <div class="scroll-to-top" id="scrollToTop"><i class="fas fa-chevron-up"></i></div>
 
   <script>
-    window.addEventListener("load", () => {
-      document.body.section.classList.remove("loading");
- 
-    });
+   
 
     const toggleBtn = document.querySelector(".dark-toggle");
     toggleBtn.addEventListener("click", () => {
