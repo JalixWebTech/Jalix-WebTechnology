@@ -6,6 +6,8 @@
   <title>Jalix WebTech</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     i {
       transition: transform 0.3s ease, color 0.3s ease;
@@ -49,9 +51,23 @@
       right: 20px;
       z-index: 1000;
     }
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
   </style>
 </head>
-<body class="loading">
+<body class="bg-gray-100">
   <div class="dark-toggle">
     <i class="fas fa-moon"></i>
   </div>
@@ -137,7 +153,89 @@
       </div>
     </div>
   </section>
+<section class="py-12 px-4">
+  <h1 class="text-4xl font-bold text-center mb-10">Our Portfolio</h1>
 
+  <!-- Filter Buttons -->
+  <div class="flex justify-center mb-8 space-x-4">
+    <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded active" data-filter="all">All</button>
+    <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded" data-filter="website">Websites</button>
+    <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded" data-filter="graphics">Graphics</button>
+    <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded" data-filter="branding">E-commerce</button>
+  </div>
+
+  <!-- Portfolio Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+  <!-- website project -->
+    <div class="portfolio-item website bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+      <img src="2.jpg" alt="Project 1" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-2">Website Project 1</h2>
+        <p class="text-gray-600 mb-2">coming soon.</p>
+        <a href="https://jalixwebtech.github.io/Jalix-WebTechnology/" target="_blank" class="text-blue-500 hover:underline">View Project</a>
+      </div>
+    </div>
+  <!-- graphics project -->
+    <div class="portfolio-item graphics bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+      <img src="5.jpg" alt="Project 2" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-2">Graphics Project 1</h2>
+        <p class="text-gray-600 mb-2">coming soon.</p>
+        
+      </div>
+    </div>
+    <div class="portfolio-item graphics bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <img src="4.jpg" alt="Project 2" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-2">Graphics Project 2</h2>
+          <p class="text-gray-600 mb-2">coming soon.</p>
+          <a href="https://jalixwebtech.github.io/Jalix-WebTechnology/" target="_blank" class="text-blue-500 hover:underline">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item graphics bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <img src="2.jpg" alt="Project 2" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-2">Graphics Project 3</h2>
+          <p class="text-gray-600 mb-2">coming soon.</p>
+          <a href="https://jalixwebtech.github.io/Jalix-WebTechnology/" target="_blank" class="text-blue-500 hover:underline">View Project</a>
+        </div>
+      </div>
+  <!-- e-commerce project -->
+    <div class="portfolio-item branding bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+      <img src="5.jpg" alt="Project 3" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-2">E-commerce Project 1</h2>
+        <p class="text-gray-600 mb-2">coming soon.</p>
+        <a href="https://jalixwebtech.github.io/Jalix-WebTechnology/" target="_blank" class="text-blue-500 hover:underline">View Project</a>
+      </div>
+    </div>
+    <div class="portfolio-item branding bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <img src="2.jpg" alt="Project 3" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-2">E-commerce Project 2</h2>
+          <p class="text-gray-600 mb-2">coming soon.</p>
+          <a href="https://jalixwebtech.github.io/Jalix-WebTechnology/" target="_blank" class="text-blue-500 hover:underline">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item branding bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <img src="4.jpg" alt="Project 3" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-2">E-commerce Project 3</h2>
+          <p class="text-gray-600 mb-2">coming soon.</p>
+          <a href="https://jalixwebtech.github.io/Jalix-WebTechnology/" target="_blank" class="text-blue-500 hover:underline">View Project</a>
+        </div>
+      </div>
+
+    <!-- Add more items as needed -->
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img src="" id="lightbox-img">
+</div>
   <section class="cta">
     <div class="container">
       <h2>Ready to bring your website vision to life?</h2>
@@ -181,5 +279,37 @@
       document.body.classList.toggle("dark-mode");
     });
   </script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+
+  const buttons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.portfolio-item');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      const filter = button.getAttribute('data-filter');
+
+      items.forEach(item => {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+</script>
 </body>
 </html>
